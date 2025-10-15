@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening to Reality - DBT & RO-DBT Skills</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #5EEAD4;
+            --deep-teal: #14B8A6;
+            --soft-purple: #C084FC;
+            --warm-rose: #FDA4AF;
+            --calm-blue: #93C5FD;
+            --sage-green: #87A878;
+            --midnight: #1E293B;
+            --slate: #475569;
+            --pearl: #F8FAFC;
+            --gradient-calm: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-nature: linear-gradient(135deg, #5EEAD4 0%, #93C5FD 100%);
+            --gradient-warm: linear-gradient(135deg, #FDA4AF 0%, #C084FC 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            min-height: 100vh;
+            color: var(--midnight);
+            overflow-x: hidden;
+        }
+
+        .bg-circle {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .bg-circle1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-teal);
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-circle2 {
+            width: 400px;
+            height: 400px;
+            background: var(--soft-purple);
+            bottom: -150px;
+            left: -150px;
+            animation-delay: -5s;
+        }
+
+        .bg-circle3 {
+            width: 250px;
+            height: 250px;
+            background: var(--warm-rose);
+            top: 50%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: var(--gradient-calm);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .subtitle {
+            color: var(--slate);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .nav-pills {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            background: white;
+            border: 2px solid transparent;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .nav-pill:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+        }
+
+        .nav-pill.active {
+            background: var(--gradient-nature);
+            color: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-nature);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .card h2 {
+            color: var(--midnight);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-nature);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .concept-card {
+            background: linear-gradient(135deg, var(--pearl) 0%, white 100%);
+            padding: 1.5rem;
+            border-radius: 16px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .concept-card.acceptance {
+            border-color: rgba(94, 234, 212, 0.2);
+        }
+
+        .concept-card.openness {
+            border-color: rgba(192, 132, 252, 0.2);
+        }
+
+        .concept-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .concept-card.acceptance:hover {
+            border-color: var(--primary-teal);
+            box-shadow: 0 10px 30px rgba(94, 234, 212, 0.3);
+        }
+
+        .concept-card.openness:hover {
+            border-color: var(--soft-purple);
+            box-shadow: 0 10px 30px rgba(192, 132, 252, 0.3);
+        }
+
+        .concept-card h3 {
+            color: var(--deep-teal);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .concept-card.openness h3 {
+            color: var(--soft-purple);
+        }
+
+        .concept-card p {
+            color: var(--slate);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        .tag.dbt {
+            background: var(--gradient-nature);
+        }
+
+        .tag.rodbt {
+            background: var(--gradient-warm);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-card {
+            padding: 2rem;
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .acceptance-side {
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);
+            border: 2px solid var(--primary-teal);
+        }
+
+        .openness-side {
+            background: linear-gradient(135deg, rgba(253, 164, 175, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+            border: 2px solid var(--soft-purple);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .assessment-section {
+            margin: 2rem 0;
+        }
+
+        .question-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            border: 2px solid rgba(94, 234, 212, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .question-card:hover {
+            border-color: var(--primary-teal);
+        }
+
+        .question-card h4 {
+            color: var(--midnight);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .option {
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.05) 0%, rgba(147, 197, 253, 0.05) 100%);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .option:hover {
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.15) 0%, rgba(147, 197, 253, 0.15) 100%);
+            transform: translateX(5px);
+        }
+
+        .option.selected {
+            border-color: var(--primary-teal);
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.2) 0%, rgba(147, 197, 253, 0.2) 100%);
+        }
+
+        .radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .radio.selected::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--deep-teal);
+            border-radius: 50%;
+        }
+
+        .practice-container {
+            background: linear-gradient(135deg, rgba(253, 164, 175, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .practice-container h3 {
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(94, 234, 212, 0.3);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 100px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.1);
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            background: var(--gradient-nature);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(94, 234, 212, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(94, 234, 212, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--deep-teal);
+            border: 2px solid var(--primary-teal);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(94, 234, 212, 0.1);
+        }
+
+        .result-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-top: 2rem;
+            border: 2px solid var(--primary-teal);
+            display: none;
+            animation: slideUp 0.5s ease;
+        }
+
+        .result-box.show {
+            display: block;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-item {
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(94, 234, 212, 0.05) 0%, rgba(147, 197, 253, 0.05) 100%);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .result-item h4 {
+            color: var(--deep-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .result-item p {
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .step-indicator {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .step {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(94, 234, 212, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--slate);
+            transition: all 0.3s ease;
+        }
+
+        .step.active {
+            background: var(--gradient-nature);
+            color: white;
+            transform: scale(1.2);
+        }
+
+        .step.completed {
+            background: var(--deep-teal);
+            color: white;
+        }
+
+        .breathing-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--gradient-nature);
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            animation: breathe 8s infinite ease-in-out;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, rgba(147, 197, 253, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-teal);
+        }
+
+        .info-box.purple {
+            border-left-color: var(--soft-purple);
+        }
+
+        .checklist {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .checklist li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--primary-teal);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .checklist li.checked .checkbox {
+            background: var(--deep-teal);
+        }
+
+        .checklist li.checked .checkbox::after {
+            content: '✓';
+            color: white;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .container { padding: 1rem; }
+            .card { padding: 1.5rem; }
+            .nav-pills { flex-direction: column; align-items: center; }
+            .comparison-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-circle bg-circle1"></div>
+    <div class="bg-circle bg-circle2"></div>
+    <div class="bg-circle bg-circle3"></div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Opening to Reality</h1>
+            <p class="subtitle">Integrating Radical Acceptance & Radical Openness for Emotional Freedom</p>
+        </div>
+
+        <div class="nav-pills">
+            <button class="nav-pill active" onclick="showPage(0)">
+                📖 Understanding
+            </button>
+            <button class="nav-pill" onclick="showPage(1)">
+                🔍 Assessment Tools
+            </button>
+            <button class="nav-pill" onclick="showPage(2)">
+                ✨ Radical Acceptance
+            </button>
+            <button class="nav-pill" onclick="showPage(3)">
+                🌈 Radical Openness
+            </button>
+        </div>
+
+        <!-- Page 1: Understanding -->
+        <div class="page active" id="page1">
+            <div class="card">
+                <h2>
+                    <div class="icon">🧠</div>
+                    Two Paths to Emotional Freedom
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 1.5rem; line-height: 1.7;">
+                    Radical Acceptance and Radical Openness are complementary skills from Dialectical Behavior Therapy (DBT) and Radically Open DBT (RO-DBT). While they sound similar, they serve different purposes and help different struggles.
+                </p>
+
+                <div class="comparison-grid">
+                    <div class="comparison-card acceptance-side">
+                        <h3 style="color: var(--deep-teal);">🌊 Radical Acceptance</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">From Traditional DBT</p>
+                        <p style="line-height: 1.7; color: var(--slate);">
+                            <strong>Core Principle:</strong> Letting go of fighting reality<br><br>
+                            <strong>For:</strong> People who struggle with intense emotions, impulsivity, or feeling out of control<br><br>
+                            <strong>The Goal:</strong> Accept unchangeable facts without approval or judgment. "It is what it is."<br><br>
+                            <strong>Key Question:</strong> "Can I stop fighting what I cannot change?"
+                        </p>
+                    </div>
+
+                    <div class="comparison-card openness-side">
+                        <h3 style="color: var(--soft-purple);">✨ Radical Openness</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">From RO-DBT</p>
+                        <p style="line-height: 1.7; color: var(--slate);">
+                            <strong>Core Principle:</strong> Questioning our perception of reality<br><br>
+                            <strong>For:</strong> People who struggle with over-control, rigidity, or emotional loneliness<br><br>
+                            <strong>The Goal:</strong> Challenge assumptions, embrace uncertainty, and open to connection. "I don't know what I don't know."<br><br>
+                            <strong>Key Question:</strong> "Am I willing to be wrong about this?"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">⚖️</div>
+                    Key Differences
+                </h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card acceptance">
+                        <span class="tag dbt">DBT</span>
+                        <h3>🎯 Radical Acceptance</h3>
+                        <p><strong>Accept reality as it is</strong><br>
+                        Reality exists whether I like it or not. Fighting it creates suffering.</p>
+                    </div>
+
+                    <div class="concept-card openness">
+                        <span class="tag rodbt">RO-DBT</span>
+                        <h3>🎯 Radical Openness</h3>
+                        <p><strong>Question your version of reality</strong><br>
+                        My perception may be limited. I'm willing to see it differently.</p>
+                    </div>
+
+                    <div class="concept-card acceptance">
+                        <span class="tag dbt">DBT</span>
+                        <h3>💪 For Under-Control</h3>
+                        <p>Helps when emotions feel too big, too intense, too overwhelming to manage.</p>
+                    </div>
+
+                    <div class="concept-card openness">
+                        <span class="tag rodbt">RO-DBT</span>
+                        <h3>💪 For Over-Control</h3>
+                        <p>Helps when you're too rigid, too guarded, too disconnected from others.</p>
+                    </div>
+
+                    <div class="concept-card acceptance">
+                        <span class="tag dbt">DBT</span>
+                        <h3>🎬 Example Scenario</h3>
+                        <p>"I lost my job. I can't change that fact. Fighting it won't bring it back. I accept this painful reality."</p>
+                    </div>
+
+                    <div class="concept-card openness">
+                        <span class="tag rodbt">RO-DBT</span>
+                        <h3>🎬 Example Scenario</h3>
+                        <p>"I believe I'm right and they're wrong. But am I willing to consider I might be missing something?"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">🌟</div>
+                    How They Work Together
+                </h2>
+                <div class="info-box">
+                    <p style="line-height: 1.8; color: var(--slate);">
+                        <strong>The Beautiful Integration:</strong><br><br>
+                        Sometimes we need <strong>Radical Acceptance</strong> to stop fighting unchangeable facts (the past, other people's choices, reality as it is).<br><br>
+                        Other times we need <strong>Radical Openness</strong> to question our rigid interpretations, assumptions, and beliefs about those facts.<br><br>
+                        <strong>Example:</strong> I can radically accept that my friend canceled plans (that's the fact), while also being radically open to challenging my immediate assumption that "they don't care about me" (my interpretation).
+                    </p>
+                </div>
+
+                <div class="info-box purple">
+                    <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">💫 The Wisdom:</h4>
+                    <p style="line-height: 1.7; color: var(--slate);">
+                        <strong>Radical Acceptance</strong> helps you stop the suffering that comes from fighting reality.<br><br>
+                        <strong>Radical Openness</strong> helps you stop the loneliness that comes from rigid beliefs and closed-off behavior.<br><br>
+                        Together, they offer a path to both inner peace and deeper connection.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 2: Assessment -->
+        <div class="page" id="page2">
+            <!-- CLIENT SELF-ASSESSMENT SECTION -->
+            <div class="card">
+                <h2>
+                    <div class="icon">🔍</div>
+                    Client Self-Assessment
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 2rem; line-height: 1.7;">
+                    This brief assessment can help you identify whether you might benefit more from Radical Acceptance (DBT) or Radical Openness (RO-DBT) practices in your current situation.
+                </p>
+
+                <div class="assessment-section">
+                    <div class="question-card">
+                        <h4>1. When facing a difficult situation, I tend to:</h4>
+                        <div class="option-group">
+                            <div class="option" onclick="selectOption(this, 'q1', 'acceptance')">
+                                <div class="radio"></div>
+                                <span>React intensely with strong emotions that feel overwhelming</span>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'q1', 'openness')">
+                                <div class="radio"></div>
+                                <span>Shut down emotionally and become more rigid in my thinking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <h4>2. In relationships, my biggest challenge is:</h4>
+                        <div class="option-group">
+                            <div class="option" onclick="selectOption(this, 'q2', 'acceptance')">
+                                <div class="radio"></div>
+                                <span>Being too emotional or reactive, pushing people away</span>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'q2', 'openness')">
+                                <div class="radio"></div>
+                                <span>Being too guarded or distant, keeping people at arm's length</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <h4>3. Right now, I'm struggling most with:</h4>
+                        <div class="option-group">
+                            <div class="option" onclick="selectOption(this, 'q3', 'acceptance')">
+                                <div class="radio"></div>
+                                <span>Something painful that happened that I keep fighting or denying</span>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'q3', 'openness')">
+                                <div class="radio"></div>
+                                <span>Being stuck in my way of seeing things and unable to consider other perspectives</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <h4>4. People who know me well might say I:</h4>
+                        <div class="option-group">
+                            <div class="option" onclick="selectOption(this, 'q4', 'acceptance')">
+                                <div class="radio"></div>
+                                <span>Express my feelings very intensely and sometimes unpredictably</span>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'q4', 'openness')">
+                                <div class="radio"></div>
+                                <span>Rarely show my emotions and can seem emotionally flat or distant</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="question-card">
+                        <h4>5. My perfectionism and need for control:</h4>
+                        <div class="option-group">
+                            <div class="option" onclick="selectOption(this, 'q5', 'acceptance')">
+                                <div class="radio"></div>
+                                <span>Is not really my issue - I'm more impulsive and struggle with planning</span>
+                            </div>
+                            <div class="option" onclick="selectOption(this, 'q5', 'openness')">
+                                <div class="radio"></div>
+                                <span>Is very high - I have strict rules for myself and struggle when things don't go as planned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn" onclick="calculateAssessment()">See My Results</button>
+                </div>
+
+                <div id="assessmentResult" class="result-box">
+                    <!-- Results will be inserted here -->
+                </div>
+            </div>
+
+            <!-- DIVIDER -->
+            <div style="margin: 4rem 0; text-align: center;">
+                <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary-teal), transparent); margin-bottom: 2rem;"></div>
+                <h2 style="color: var(--deep-teal); font-size: 2rem; margin-bottom: 0.5rem;">For Clinicians</h2>
+                <p style="color: var(--slate);">Semi-Structured Discussion Guide for Assessment</p>
+                <div style="height: 2px; background: linear-gradient(90deg, transparent, var(--primary-teal), transparent); margin-top: 2rem;"></div>
+            </div>
+
+            <!-- CLINICAL ASSESSMENT GUIDE -->
+            <div class="card">
+                <h2>
+                    <div class="icon">💬</div>
+                    Semi-Structured Clinical Assessment Guide
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 1.5rem; line-height: 1.7;">
+                    This guide helps clinicians determine whether a client would benefit more from Radical Acceptance (DBT) or Radical Openness (RO-DBT) interventions through exploratory conversation.
+                </p>
+
+                <div class="info-box">
+                    <p style="line-height: 1.8;">
+                        <strong>How to Use This Guide:</strong><br>
+                        • Ask questions naturally in conversation, not as a formal interview<br>
+                        • Listen for patterns across multiple domains<br>
+                        • Pay attention to both content and process (how they answer, not just what)<br>
+                        • Use clinical judgment - this is a guide, not a rigid protocol<br>
+                        • Consider that clients may need different skills at different times
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">📋</div>
+                    Domain 1: Emotional Expression & Regulation
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Guiding Questions</h3>
+                    
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"Tell me about a recent time you felt a strong emotion. What was happening?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Follow-up prompts: How did you respond? What did you do with that feeling? How did others around you react?</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"When you're upset, do people around you usually know? How do they know?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Listen for: visibility vs. invisibility of emotions</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"What happens when you try to control or manage difficult feelings?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Explore: successful control that leads to rigidity vs. unsuccessful control that leads to reactivity</p>
+                    </div>
+
+                    <h4 style="color: var(--deep-teal); margin-top: 1.5rem; margin-bottom: 0.75rem;">Clinical Indicators</h4>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card acceptance-side">
+                            <h4 style="color: var(--deep-teal); margin-bottom: 0.75rem;">Under-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Emotions feel overwhelming, intense, "too big"<br>
+                                ✓ Difficulty modulating emotional responses<br>
+                                ✓ Others describe them as "too emotional" or "dramatic"<br>
+                                ✓ Emotions shift rapidly and unpredictably<br>
+                                ✓ Struggles with impulse control when distressed<br>
+                                ✓ Crisis behaviors during high emotion<br><br>
+                                <strong>→ Consider: Radical Acceptance (DBT)</strong>
+                            </p>
+                        </div>
+
+                        <div class="comparison-card openness-side">
+                            <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">Over-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Keeps emotions "under wraps" successfully<br>
+                                ✓ Flat affect, limited emotional range<br>
+                                ✓ Others describe them as "distant" or "hard to read"<br>
+                                ✓ Occasional "emotional leakage" in private<br>
+                                ✓ Inhibited expression even when appropriate<br>
+                                ✓ Difficulty identifying/naming emotions<br><br>
+                                <strong>→ Consider: Radical Openness (RO-DBT)</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">👥</div>
+                    Domain 2: Interpersonal Relationships
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Guiding Questions</h3>
+                    
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"How would you describe your closest relationships? What patterns do you notice?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Listen for: intensity/volatility vs. distance/aloofness</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"When there's conflict with someone you care about, what typically happens?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Explore: escalation vs. withdrawal, pursuit vs. distance</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"Do you ever feel lonely even when you're around people?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Probe gently: What does that feel like? What do you think contributes to it?</p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card acceptance-side">
+                            <h4 style="color: var(--deep-teal); margin-bottom: 0.75rem;">Under-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Intense, unstable relationships<br>
+                                ✓ Fear of abandonment, clinginess<br>
+                                ✓ Conflict escalates quickly<br>
+                                ✓ "I hate you, don't leave me" dynamic<br>
+                                ✓ Difficulty being alone<br>
+                                ✓ Others feel overwhelmed by their intensity<br><br>
+                                <strong>→ Consider: Radical Acceptance (DBT)</strong>
+                            </p>
+                        </div>
+
+                        <div class="comparison-card openness-side">
+                            <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">Over-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Emotionally lonely despite having people in life<br>
+                                ✓ Keeps others at arm's length<br>
+                                ✓ Withdraws during conflict<br>
+                                ✓ Difficulty revealing vulnerability<br>
+                                ✓ Prefers independence, self-reliance<br>
+                                ✓ Others find them "hard to get close to"<br><br>
+                                <strong>→ Consider: Radical Openness (RO-DBT)</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">🧩</div>
+                    Domain 3: Cognitive & Behavioral Flexibility
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Guiding Questions</h3>
+                    
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"When plans change unexpectedly, how do you typically respond?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Notice: emotional reactivity vs. rigidity/distress</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"Tell me about your daily routines. What happens when something disrupts them?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Explore: degree of structure needed, response to disruption</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"How do you handle uncertainty? Can you give me an example?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Listen for: avoidance patterns, anxiety, or need for control</p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card acceptance-side">
+                            <h4 style="color: var(--deep-teal); margin-bottom: 0.75rem;">Under-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Impulsive decision-making<br>
+                                ✓ Difficulty with planning/organization<br>
+                                ✓ All-or-nothing thinking in the moment<br>
+                                ✓ Reactive rather than reflective<br>
+                                ✓ Struggles with delayed gratification<br>
+                                ✓ "Act first, think later" pattern<br><br>
+                                <strong>→ Consider: Radical Acceptance (DBT)</strong>
+                            </p>
+                        </div>
+
+                        <div class="comparison-card openness-side">
+                            <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">Over-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Rigid adherence to rules/routines<br>
+                                ✓ Hyper-perfectionism<br>
+                                ✓ Cognitive rigidity, "one right way"<br>
+                                ✓ Difficulty tolerating uncertainty<br>
+                                ✓ Over-planning, over-preparing<br>
+                                ✓ High moral certitude<br><br>
+                                <strong>→ Consider: Radical Openness (RO-DBT)</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">🎭</div>
+                    Domain 4: Response to Distress & Painful Experiences
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Guiding Questions</h3>
+                    
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"When something really painful or difficult happens, what's your first reaction?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">Observe: fighting/denial vs. suppression/avoidance</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"Is there something in your life right now that you find yourself thinking 'this shouldn't be happening' or 'this isn't fair'?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">This directly assesses need for Radical Acceptance</p>
+                    </div>
+
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">"How comfortable are you with being wrong or making mistakes?"</p>
+                        <p style="font-size: 0.9rem; font-style: italic; color: var(--slate);">This directly assesses need for Radical Openness</p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card acceptance-side">
+                            <h4 style="color: var(--deep-teal); margin-bottom: 0.75rem;">Under-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Fights against painful reality<br>
+                                ✓ "Why me?" or "This isn't fair!" mentality<br>
+                                ✓ Rumination about past, what-ifs<br>
+                                ✓ Difficulty accepting unchangeable facts<br>
+                                ✓ Self-destructive behaviors when distressed<br>
+                                ✓ Blaming self or others excessively<br><br>
+                                <strong>→ Consider: Radical Acceptance (DBT)</strong>
+                            </p>
+                        </div>
+
+                        <div class="comparison-card openness-side">
+                            <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">Over-Control Pattern</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                ✓ Difficulty admitting mistakes or being wrong<br>
+                                ✓ Dismisses feedback or criticism<br>
+                                ✓ Avoids situations where they might fail<br>
+                                ✓ Suppresses pain rather than processing it<br>
+                                ✓ Strong need to appear competent/together<br>
+                                ✓ Shame about vulnerability<br><br>
+                                <strong>→ Consider: Radical Openness (RO-DBT)</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">🔬</div>
+                    Domain 5: Observational & Process Indicators
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">What to Notice During the Session</h3>
+                    
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="line-height: 1.8;">
+                            <strong>Pay attention to HOW they communicate, not just WHAT they say:</strong><br><br>
+                            These in-session behaviors can reveal patterns that the client may not self-report accurately. Trust your clinical observation alongside their verbal responses.
+                        </p>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card acceptance-side">
+                            <h4 style="color: var(--deep-teal); margin-bottom: 0.75rem;">Under-Control Markers</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                <strong>Emotional Presentation:</strong><br>
+                                ✓ Rapid emotional shifts during session<br>
+                                ✓ Tears come easily<br>
+                                ✓ Voice volume/tone changes dramatically<br>
+                                ✓ Expressive body language<br><br>
+                                
+                                <strong>Communication Style:</strong><br>
+                                ✓ Tangential, hard to redirect<br>
+                                ✓ Crisis language ("I can't take this")<br>
+                                ✓ Urgent/demanding tone<br>
+                                ✓ Difficulty staying present<br><br>
+                                
+                                <strong>Interpersonal Process:</strong><br>
+                                ✓ Seeks reassurance frequently<br>
+                                ✓ Sensitive to perceived rejection<br>
+                                ✓ Idealizes or devalues therapist<br><br>
+                                
+                                <strong>→ Likely benefits from Radical Acceptance</strong>
+                            </p>
+                        </div>
+
+                        <div class="comparison-card openness-side">
+                            <h4 style="color: var(--soft-purple); margin-bottom: 0.75rem;">Over-Control Markers</h4>
+                            <p style="font-size: 0.95rem; line-height: 1.7;">
+                                <strong>Emotional Presentation:</strong><br>
+                                ✓ Flat affect, narrow emotional range<br>
+                                ✓ Difficulty crying or showing distress<br>
+                                ✓ Controlled, measured speech<br>
+                                ✓ Minimal body language/gestures<br><br>
+                                
+                                <strong>Communication Style:</strong><br>
+                                ✓ Over-detailed, hyper-rational<br>
+                                ✓ Intellectualizes emotions<br>
+                                ✓ Vague about feelings, specific about facts<br>
+                                ✓ Answers questions with questions<br><br>
+                                
+                                <strong>Interpersonal Process:</strong><br>
+                                ✓ Maintains formal distance<br>
+                                ✓ Defensive when challenged<br>
+                                ✓ Difficulty receiving empathy<br>
+                                ✓ Poor eye contact or rigid eye contact<br><br>
+                                
+                                <strong>→ Likely benefits from Radical Openness</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">📊</div>
+                    Clinical Decision-Making Framework
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Synthesizing Your Assessment</h3>
+                    
+                    <div class="info-box">
+                        <p style="line-height: 1.8; margin-bottom: 1rem;">
+                            <strong>After exploring these domains, consider:</strong>
+                        </p>
+                        <ol style="line-height: 2; margin-left: 1.5rem; color: var(--slate);">
+                            <li><strong>Primary Pattern:</strong> Does the client show more under-control or over-control across domains?</li>
+                            <li><strong>Context Matters:</strong> Some people are over-controlled at work but under-controlled at home, or vice versa</li>
+                            <li><strong>Current Crisis:</strong> What's the most pressing issue right now?</li>
+                            <li><strong>Treatment History:</strong> What has or hasn't worked before?</li>
+                            <li><strong>Client Insight:</strong> After psychoeducation, what resonates with them?</li>
+                        </ol>
+                    </div>
+
+                    <h4 style="color: var(--deep-teal); margin: 1.5rem 0 1rem;">Treatment Recommendations</h4>
+                    
+                    <div class="info-box" style="background: linear-gradient(135deg, rgba(94, 234, 212, 0.1) 0%, rgba(147, 197, 253, 0.1) 100%);">
+                        <p style="font-weight: 600; color: var(--deep-teal); margin-bottom: 0.5rem;">Primarily Under-Control → Focus on Radical Acceptance</p>
+                        <p style="line-height: 1.7;">
+                            Start with:<br>
+                            • Psychoeducation about pain vs. suffering<br>
+                            • Identifying what realities they're fighting<br>
+                            • Distress tolerance skills (TIPP, STOP, Self-Soothing)<br>
+                            • Turning the Mind, Half-Smile, Willing Hands<br>
+                            • Building willingness vs. willfulness awareness
+                        </p>
+                    </div>
+
+                    <div class="info-box purple" style="background: linear-gradient(135deg, rgba(253, 164, 175, 0.1) 0%, rgba(192, 132, 252, 0.1) 100%); margin-top: 1rem;">
+                        <p style="font-weight: 600; color: var(--soft-purple); margin-bottom: 0.5rem;">Primarily Over-Control → Focus on Radical Openness</p>
+                        <p style="line-height: 1.7;">
+                            Start with:<br>
+                            • Psychoeducation about emotional loneliness and social signaling<br>
+                            • Self-enquiry practices<br>
+                            • Flexible Mind skills (embracing uncertainty)<br>
+                            • Social signaling awareness and practice<br>
+                            • Revealing vulnerability in safe relationships<br>
+                            • Challenging cognitive rigidity
+                        </p>
+                    </div>
+
+                    <div class="info-box" style="margin-top: 1rem; border-left-color: var(--sage-green);">
+                        <p style="font-weight: 600; color: var(--sage-green); margin-bottom: 0.5rem;">Mixed Presentation → Integrate Both</p>
+                        <p style="line-height: 1.7;">
+                            Some clients need both skills:<br>
+                            • Accept the unchangeable facts (Radical Acceptance)<br>
+                            • Question their interpretations of those facts (Radical Openness)<br>
+                            • Teach discernment: "When do I need acceptance vs. openness?"<br>
+                            • Example: Accept that relationship ended (fact), but question assumption that "I'm unlovable" (interpretation)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">💡</div>
+                    Sample Clinical Formulation Language
+                </h2>
+                
+                <div class="practice-container">
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">Discussing Findings with Your Client</h3>
+                    
+                    <div class="info-box" style="margin-bottom: 1rem;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">For Under-Control Pattern:</p>
+                        <p style="line-height: 1.7; font-style: italic;">
+                            "From what you've shared, it sounds like your emotions can feel really intense and overwhelming sometimes—like they're bigger than you can handle. When painful things happen, you find yourself fighting against them, wishing they weren't true, which creates even more suffering. Does that fit for you? If so, we could work on Radical Acceptance—which is about accepting reality without fighting it, so you can respond more effectively."
+                        </p>
+                    </div>
+
+                    <div class="info-box purple">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">For Over-Control Pattern:</p>
+                        <p style="line-height: 1.7; font-style: italic;">
+                            "I notice you're really good at keeping things together and maintaining control—and that's a real strength. But I wonder if sometimes that control keeps you at a distance from people, or makes it hard to show vulnerability. You mentioned feeling lonely even when you're around others. That pattern might benefit from Radical Openness—learning to question your assumptions, be more flexible, and let people see the real you. How does that sound?"
+                        </p>
+                    </div>
+
+                    <div class="info-box" style="margin-top: 1.5rem;">
+                        <p style="line-height: 1.8;">
+                            <strong>Key Therapeutic Stance:</strong><br><br>
+                            • Validate their current coping strategies as understandable<br>
+                            • Frame new skills as additions, not replacements<br>
+                            • Collaborate on which approach feels most relevant<br>
+                            • Normalize that everyone has elements of both patterns<br>
+                            • Emphasize that this assessment guides where to start, not where to stay
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">⚠️</div>
+                    Important Clinical Considerations
+                </h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card acceptance">
+                        <h3>🎯 Not Either/Or</h3>
+                        <p>Clients may need different skills at different times. Stay flexible and follow their needs.</p>
+                    </div>
+                    <div class="concept-card openness">
+                        <h3>🔍 Cultural Context</h3>
+                        <p>What looks like "over-control" may be culturally appropriate emotional restraint. Always consider cultural norms.</p>
+                    </div>
+                    <div class="concept-card acceptance">
+                        <h3>⏰ Timing Matters</h3>
+                        <p>During acute crisis, focus on Radical Acceptance first. Radical Openness requires more capacity for reflection.</p>
+                    </div>
+                    <div class="concept-card openness">
+                        <h3>💪 Build on Strengths</h3>
+                        <p>Over-controlled clients often have excellent discipline for skills practice. Under-controlled clients bring passion and emotional depth.</p>
+                    </div>
+                    <div class="concept-card acceptance">
+                        <h3>🎭 Surface vs. Depth</h3>
+                        <p>Some appear over-controlled (flat affect) but are actually under-controlled (internal chaos). Look beneath the surface.</p>
+                    </div>
+                    <div class="concept-card openness">
+                        <h3>📚 Training Matters</h3>
+                        <p>Full RO-DBT requires specific training. These skills can complement standard DBT practice with appropriate consultation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 3: Radical Acceptance Practice -->
+        <div class="page" id="page3">
+            <div class="card">
+                <h2>
+                    <div class="icon">🌊</div>
+                    Radical Acceptance Practice
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 1.5rem; line-height: 1.7;">
+                    Radical Acceptance is letting go of fighting reality. It doesn't mean you approve or that it's fair—it means you stop adding suffering by resisting what is.
+                </p>
+
+                <div class="step-indicator">
+                    <div class="step active" id="ra-step1">1</div>
+                    <div class="step" id="ra-step2">2</div>
+                    <div class="step" id="ra-step3">3</div>
+                    <div class="step" id="ra-step4">4</div>
+                    <div class="step" id="ra-step5">5</div>
+                </div>
+
+                <div id="ra-container">
+                    <!-- Steps will be loaded here -->
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">🙏</div>
+                    Supporting Skills
+                </h2>
+                <div class="concept-grid">
+                    <div class="concept-card acceptance">
+                        <h3>🔄 Turning the Mind</h3>
+                        <p>When you find yourself resisting, gently turn your mind back toward acceptance. Choose acceptance again and again.</p>
+                    </div>
+                    <div class="concept-card acceptance">
+                        <h3>😌 Half-Smile</h3>
+                        <p>Relax your face into the tiniest smile. This physical act signals your brain toward acceptance and openness.</p>
+                    </div>
+                    <div class="concept-card acceptance">
+                        <h3>🤲 Willing Hands</h3>
+                        <p>Hold your hands open, palms up. This posture embodies willingness rather than resistance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Radical Openness Practice -->
+        <div class="page" id="page4">
+            <div class="card">
+                <h2>
+                    <div class="icon">🌈</div>
+                    Radical Openness Practice
+                </h2>
+                <p style="color: var(--slate); margin-bottom: 1.5rem; line-height: 1.7;">
+                    Radical Openness means actively questioning your beliefs and being willing to be wrong. It's about recognizing that "we don't know what we don't know" and opening ourselves to learn.
+                </p>
+
+                <div class="step-indicator">
+                    <div class="step active" id="ro-step1">1</div>
+                    <div class="step" id="ro-step2">2</div>
+                    <div class="step" id="ro-step3">3</div>
+                    <div class="step" id="ro-step4">4</div>
+                    <div class="step" id="ro-step5">5</div>
+                </div>
+
+                <div id="ro-container">
+                    <!-- Steps will be loaded here -->
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>
+                    <div class="icon">🎯</div>
+                    Core RO-DBT Skills
+                </h2>
+                <div class="concept-grid">
+                    <div class="concept-card openness">
+                        <h3>🔍 Self-Enquiry</h3>
+                        <p>Question your assumptions without falling apart. Ask: "What am I not seeing? What could I be missing?"</p>
+                    </div>
+                    <div class="concept-card openness">
+                        <h3>📡 Social Signaling</h3>
+                        <p>Notice how your body language communicates to others. Are you signaling openness or distance?</p>
+                    </div>
+                    <div class="concept-card openness">
+                        <h3>🌿 Flexible Mind</h3>
+                        <p>Practice responding flexibly to unexpected situations. Embrace uncertainty as an opportunity to learn.</p>
+                    </div>
+                    <div class="concept-card openness">
+                        <h3>💝 Revealing Vulnerability</h3>
+                        <p>Share authentic emotions with safe people. Connection requires letting others see you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Assessment tracking
+        let assessmentData = {
+            q1: null,
+            q2: null,
+            q3: null,
+            q4: null,
+            q5: null
+        };
+
+        function showPage(pageIndex) {
+            const pages = document.querySelectorAll('.page');
+            const pills = document.querySelectorAll('.nav-pill');
+            
+            pages.forEach((page, index) => {
+                page.classList.toggle('active', index === pageIndex);
+            });
+            
+            pills.forEach((pill, index) => {
+                pill.classList.toggle('active', index === pageIndex);
+            });
+
+            // Initialize step-based exercises when those pages load
+            if (pageIndex === 2) initRadicalAcceptance();
+            if (pageIndex === 3) initRadicalOpenness();
+            
+            // Scroll to top when changing pages
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function selectOption(element, question, value) {
+            const parent = element.parentElement;
+            const allOptions = parent.querySelectorAll('.option');
+            
+            allOptions.forEach(opt => {
+                opt.classList.remove('selected');
+                opt.querySelector('.radio').classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            element.querySelector('.radio').classList.add('selected');
+            assessmentData[question] = value;
+        }
+
+        function calculateAssessment() {
+            const values = Object.values(assessmentData);
+            if (values.includes(null)) {
+                alert('Please answer all questions before seeing your results.');
+                return;
+            }
+
+            const acceptanceCount = values.filter(v => v === 'acceptance').length;
+            const opennessCount = values.filter(v => v === 'openness').length;
+
+            const resultDiv = document.getElementById('assessmentResult');
+            
+            if (acceptanceCount > opennessCount) {
+                resultDiv.innerHTML = `
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1.5rem;">🌊 You May Benefit Most From: Radical Acceptance</h3>
+                    
+                    <div class="result-item">
+                        <h4>Your Pattern</h4>
+                        <p>Your responses suggest you may struggle more with emotional intensity, impulsivity, or difficulty accepting painful realities. You might find yourself fighting against circumstances you can't change, which creates additional suffering.</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>What Radical Acceptance Can Offer You</h4>
+                        <p>Learning to radically accept reality can help you:<br>
+                        • Reduce the suffering that comes from fighting unchangeable facts<br>
+                        • Respond more effectively to difficult situations<br>
+                        • Find peace even when things aren't going your way<br>
+                        • Move forward instead of staying stuck in "this shouldn't be happening"</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Next Steps</h4>
+                        <p>Visit the "Radical Acceptance" tab to practice this skill with guided exercises. Remember: acceptance doesn't mean approval—it means stopping the fight with reality so you can respond wisely.</p>
+                    </div>
+                `;
+            } else if (opennessCount > acceptanceCount) {
+                resultDiv.innerHTML = `
+                    <h3 style="color: var(--soft-purple); margin-bottom: 1.5rem;">✨ You May Benefit Most From: Radical Openness</h3>
+                    
+                    <div class="result-item">
+                        <h4>Your Pattern</h4>
+                        <p>Your responses suggest you may struggle more with over-control, rigidity, or difficulty connecting emotionally with others. You might hold yourself to very high standards and find it challenging to show vulnerability or consider alternative perspectives.</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>What Radical Openness Can Offer You</h4>
+                        <p>Learning to be radically open can help you:<br>
+                        • Challenge rigid beliefs and see situations from new angles<br>
+                        • Connect more deeply with others through authentic expression<br>
+                        • Reduce the emotional loneliness that comes from over-control<br>
+                        • Embrace uncertainty and flexibility in life<br>
+                        • Signal warmth and approachability to others</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Next Steps</h4>
+                        <p>Visit the "Radical Openness" tab to practice this skill with guided exercises. Remember: openness doesn't mean losing yourself—it means being willing to learn and connect.</p>
+                    </div>
+                `;
+            } else {
+                resultDiv.innerHTML = `
+                    <h3 style="color: var(--deep-teal); margin-bottom: 1.5rem;">⚖️ You May Benefit From Both Skills</h3>
+                    
+                    <div class="result-item">
+                        <h4>Your Pattern</h4>
+                        <p>Your responses suggest you might benefit from both Radical Acceptance and Radical Openness, depending on the situation. This is actually quite common—we all have different patterns in different contexts.</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>The Integration Approach</h4>
+                        <p>Consider:<br>
+                        • Use <strong>Radical Acceptance</strong> when you're fighting unchangeable facts or circumstances<br>
+                        • Use <strong>Radical Openness</strong> when you're stuck in rigid thinking or feeling disconnected from others<br>
+                        • Sometimes you need both: accept the fact, while staying open to new interpretations</p>
+                    </div>
+
+                    <div class="result-item">
+                        <h4>Next Steps</h4>
+                        <p>Explore both practice tabs and notice which resonates more with your current struggles. Trust your intuition about which skill you need most right now.</p>
+                    </div>
+                `;
+            }
+            
+            resultDiv.classList.add('show');
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Radical Acceptance Exercise
+        let raCurrentStep = 1;
+        const raSteps = [
+            {
+                title: "Identify What Needs Accepting",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 1: Name the Reality</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">What painful fact or situation are you struggling to accept? Be specific and factual—not interpretations.</p>
+                        <textarea id="ra-reality" placeholder="Example: My partner ended our relationship. I didn't get the job. My health diagnosis is chronic. My childhood was difficult."></textarea>
+                    </div>
+                `
+            },
+            {
+                title: "Notice the Fighting",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 2: Recognize Your Resistance</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">How are you fighting this reality? Check all that apply:</p>
+                        <ul class="checklist">
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>I keep thinking "This shouldn't have happened"</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>I'm blaming myself or others</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>I'm ruminating about what I could have done differently</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>I'm trying to deny or minimize what happened</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>I keep asking "Why me?" or "This isn't fair"</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>I'm avoiding thinking about it entirely</span>
+                            </li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                title: "Breathe Into Acceptance",
+                content: `
+                    <div class="practice-container" style="text-align: center;">
+                        <h3>Step 3: Center Yourself</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">Let's use breathing to create space for acceptance.</p>
+                        <div class="breathing-circle">
+                            Breathe
+                        </div>
+                        <div class="info-box">
+                            <p>Breathe in for 4 counts... Hold for 2... Breathe out for 6 counts.<br>
+                            Repeat for 2-3 minutes.<br><br>
+                            With each exhale, imagine releasing the fight against reality.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Practice Acceptance Statements",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 4: Say the Words</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">Acceptance starts with words, even if you don't fully feel it yet. Write acceptance statements:</p>
+                        <textarea id="ra-statements" placeholder="Examples:
+'This happened. I cannot change it by wishing it were different.'
+'Fighting this reality only creates more pain.'
+'I can accept this without approving of it.'
+'Reality is what it is, regardless of my feelings about it.'
+'I choose to accept so I can move forward.'"></textarea>
+                    </div>
+                `
+            },
+            {
+                title: "Commit to Turning Your Mind",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 5: Make the Commitment</h3>
+                        <div class="info-box">
+                            <p style="line-height: 1.8;">
+                                <strong>Remember:</strong> Radical acceptance is a practice, not a one-time event. You may need to accept the same reality hundreds of times.<br><br>
+                                Each time you notice yourself fighting reality again, gently "turn your mind" back toward acceptance.<br><br>
+                                You're building a new habit: choosing acceptance over suffering.
+                            </p>
+                        </div>
+                        <textarea id="ra-commitment" placeholder="Write a commitment to yourself about practicing acceptance with this situation..."></textarea>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn" onclick="completeRA()">Complete Practice</button>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        function initRadicalAcceptance() {
+            raCurrentStep = 1;
+            updateRAStep();
+        }
+
+        function updateRAStep() {
+            const container = document.getElementById('ra-container');
+            const step = raSteps[raCurrentStep - 1];
+            
+            container.innerHTML = `
+                <h3 style="color: var(--deep-teal); margin-bottom: 1rem;">${step.title}</h3>
+                ${step.content}
+                <div style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                    ${raCurrentStep > 1 ? '<button class="btn btn-secondary" onclick="raCurrentStep--; updateRAStep();">Previous</button>' : ''}
+                    ${raCurrentStep < raSteps.length ? '<button class="btn" onclick="raCurrentStep++; updateRAStep();">Next Step</button>' : ''}
+                </div>
+            `;
+
+            // Update step indicators
+            for (let i = 1; i <= 5; i++) {
+                const stepEl = document.getElementById(`ra-step${i}`);
+                stepEl.classList.remove('active', 'completed');
+                if (i < raCurrentStep) stepEl.classList.add('completed');
+                if (i === raCurrentStep) stepEl.classList.add('active');
+            }
+
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function completeRA() {
+            alert('Beautiful work! Remember: Radical Acceptance is a practice. Return to these steps whenever you notice yourself fighting reality. Each time you choose acceptance over resistance, you reduce suffering and create space for wise action.');
+        }
+
+        // Radical Openness Exercise
+        let roCurrentStep = 1;
+        const roSteps = [
+            {
+                title: "Identify Your Certainty",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 1: What Are You Sure About?</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">What belief, opinion, or interpretation are you absolutely certain is correct?</p>
+                        <textarea id="ro-certainty" placeholder="Examples: 
+'I know my partner doesn't care about me.'
+'I'm sure I'm the only one who can do this right.'
+'There's definitely no other way to see this situation.'
+'I'm certain people are judging me.'"></textarea>
+                    </div>
+                `
+            },
+            {
+                title: "Practice Self-Enquiry",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 2: Question Your Conviction</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">Ask yourself these questions with genuine curiosity (write your responses):</p>
+                        <div class="info-box purple">
+                            <p><strong>What evidence do I have that challenges my belief?</strong></p>
+                            <textarea id="ro-challenge" style="margin-top: 0.5rem;" placeholder="What contradicts my certainty?"></textarea>
+                        </div>
+                        <div class="info-box purple" style="margin-top: 1rem;">
+                            <p><strong>What might I be missing or not seeing?</strong></p>
+                            <textarea id="ro-missing" style="margin-top: 0.5rem;" placeholder="What's in my blind spot?"></textarea>
+                        </div>
+                        <div class="info-box purple" style="margin-top: 1rem;">
+                            <p><strong>Am I willing to be wrong about this?</strong></p>
+                            <textarea id="ro-willing" style="margin-top: 0.5rem;" placeholder="What would it mean if I'm wrong?"></textarea>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Consider Alternative Perspectives",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 3: Open to Other Viewpoints</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">If you asked three different people about this situation, what might they say? Try to genuinely imagine their perspectives.</p>
+                        <textarea id="ro-perspectives" style="min-height: 150px;" placeholder="Person 1 might say...
+Person 2 might say...
+Person 3 might say...
+
+Which of these feels hardest to consider? Why?"></textarea>
+                    </div>
+                `
+            },
+            {
+                title: "Check Your Social Signals",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 4: Notice How You're Communicating</h3>
+                        <p style="color: var(--slate); margin-bottom: 1rem;">When you're certain and rigid, how does your body show it? Check what you notice:</p>
+                        <ul class="checklist">
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>Crossed arms or closed body posture</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>Tense jaw or furrowed brow</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>Flat or monotone voice</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>Avoiding eye contact</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>Short, clipped responses</span>
+                            </li>
+                            <li onclick="toggleCheck(this)">
+                                <div class="checkbox"></div>
+                                <span>Keeping emotional distance from others</span>
+                            </li>
+                        </ul>
+                        <div class="info-box purple" style="margin-top: 1.5rem;">
+                            <p>These signals tell others: "I'm closed off. Don't come closer." Radical openness invites connection through flexible, warm signals.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                title: "Practice Opening",
+                content: `
+                    <div class="practice-container">
+                        <h3>Step 5: Embody Openness</h3>
+                        <div class="info-box purple">
+                            <p style="line-height: 1.8;">
+                                <strong>Physical Practice:</strong><br>
+                                • Soften your face and jaw<br>
+                                • Open your shoulders and chest<br>
+                                • Take a gentle breath<br>
+                                • Allow a micro-expression of warmth<br><br>
+                                Say to yourself: "I'm willing to learn. I don't know everything. Connection matters more than being right."
+                            </p>
+                        </div>
+                        <textarea id="ro-practice" placeholder="Reflect: What would it be like to approach this situation with genuine openness? What might you discover?"></textarea>
+                        <div style="margin-top: 1.5rem;">
+                            <button class="btn" onclick="completeRO()">Complete Practice</button>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
+        function initRadicalOpenness() {
+            roCurrentStep = 1;
+            updateROStep();
+        }
+
+        function updateROStep() {
+            const container = document.getElementById('ro-container');
+            const step = roSteps[roCurrentStep - 1];
+            
+            container.innerHTML = `
+                <h3 style="color: var(--soft-purple); margin-bottom: 1rem;">${step.title}</h3>
+                ${step.content}
+                <div style="text-align: center; margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                    ${roCurrentStep > 1 ? '<button class="btn btn-secondary" onclick="roCurrentStep--; updateROStep();">Previous</button>' : ''}
+                    ${roCurrentStep < roSteps.length ? '<button class="btn" onclick="roCurrentStep++; updateROStep();">Next Step</button>' : ''}
+                </div>
+            `;
+
+            // Update step indicators
+            for (let i = 1; i <= 5; i++) {
+                const stepEl = document.getElementById(`ro-step${i}`);
+                stepEl.classList.remove('active', 'completed');
+                if (i < roCurrentStep) stepEl.classList.add('completed');
+                if (i === roCurrentStep) stepEl.classList.add('active');
+            }
+
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        function completeRO() {
+            alert('Excellent work! Radical Openness is a daily practice. Each time you question your certainty and open to new perspectives, you reduce isolation and invite deeper connection. Remember: being open doesn\'t mean losing yourself—it means being willing to learn and grow.');
+        }
+
+        function toggleCheck(element) {
+            element.classList.toggle('checked');
+        }
+
+        // Add fade in animation for concept cards
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.concept-card').forEach((card, index) => {
+                card.style.animation = `fadeIn 0.6s ease ${index * 0.1}s both`;
+            });
+        });
+    </script>
+</body>
+</html>
